@@ -1,0 +1,64 @@
+// basic config
+$step-width : calculate-rem(48px);
+$step-height : calculate-rem(48px);
+$step-color: $color-white;
+$step-background: lighten($color-black, 70%);
+$step-color-active: $color-white;
+$step-background-active: $color-primary;
+
+.step-progressbar {
+    list-style: none;
+    counter-reset: step;
+    display: flex;
+    padding: 0;
+
+    .step {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        text-align: center;
+        position: relative;
+
+        &:before {
+            width: $step-width;
+            height: $step-height;
+            content: counter(step);
+            counter-increment: step;
+            align-self: center;
+            background: $step-background;
+            color: $step-color;
+            border-radius: 100%;
+            line-height: calculate-rem(48px);
+            margin-bottom: calculate-rem(8px);
+        }
+
+        &:after {
+            height: 2px;
+            width: calc(100% - 70px);
+            content: '';
+            background: lighten($color-black, 70%);
+            position: absolute;
+            top: calculate-rem(24px);
+            left: calc(50% + 35px);
+        }
+
+        &:last-child {
+            &:after {
+                content: none;
+            }
+        }
+
+        &.active {
+            &:before {
+                background: $step-background-active;
+                color: $step-color-active;
+            }
+        }
+
+        &.complete {
+            &:before {
+                content: '✔';
+            }
+        }
+    }
+}

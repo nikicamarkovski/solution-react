@@ -1,0 +1,43 @@
+
+
+$modal-inner-padding:               1rem;
+
+// Margin between elements in footer, must be lower than or equal to 2 * $modal-inner-padding
+$modal-footer-margin-between:       .5rem;
+
+$modal-dialog-margin:               .5rem;
+$modal-dialog-margin-y-sm-up:       1.75rem;
+
+$modal-title-line-height:           1.5;
+
+$modal-content-color:               null;
+$modal-content-bg:                  #fff;
+$modal-content-border-color:        rgba(#000, .2);
+$modal-content-border-width:        1px;
+$modal-content-border-radius:       0.5rem;
+$modal-content-inner-border-radius: subtract($modal-content-border-radius, $modal-content-border-width);
+$modal-content-box-shadow-xs:       0 .25rem .5rem rgba(#000, .5);
+$modal-content-box-shadow-sm-up:    0 .5rem 1rem rgba(#000, .5);
+
+$modal-backdrop-bg:                 #000;
+$modal-backdrop-opacity:            .5;
+$modal-header-border-color:         #dee2e6;
+$modal-footer-border-color:         $modal-header-border-color;
+$modal-header-border-width:         $modal-content-border-width;
+$modal-footer-border-width:         $modal-header-border-width;
+$modal-header-padding-y:            1rem;
+$modal-header-padding-x:            1rem;
+$modal-header-padding:              $modal-header-padding-y $modal-header-padding-x; // Keep this for backwards compatibility
+
+$modal-xl:                          1140px;
+$modal-lg:                          800px;
+$modal-md:                          500px;
+$modal-sm:                          300px;
+
+$modal-fade-transform:              translate(0, -50px);
+$modal-show-transform:              none;
+$modal-transition:                  transform .3s ease-out;
+$modal-scale-transform:             scale(1.02);
+$zindex-modal-backdrop:             1040 !default;
+$zindex-modal:                      1050 !default;
+$transition-base:                   all .2s ease-in-out !default;

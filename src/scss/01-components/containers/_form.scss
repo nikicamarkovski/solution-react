@@ -1,0 +1,52 @@
+// .form-container {
+//     width: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     margin-bottom: calculate-rem(20px);
+//     flex-flow: column-reverse;
+// }
+
+// .form-container-inline {
+//     @extend .form-container;
+//     flex-direction: row;
+//     justify-content: flex-end;
+//     align-items: center;
+//     flex-flow: row-reverse;
+
+// }
+
+// .form-control {
+//     position: relative;
+//     margin-right: calculate-rem(16px);
+// }
+
+
+// test code
+
+form {
+    margin: calculate-rem(32px) 0;
+
+    &.inline {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        flex-wrap: wrap;
+
+        .field {
+            margin-right: calculate-rem(16px);
+        }
+    }
+}
+
+
+
+/**
+* Make the field a flex-container, reverse the order so label is on top.
+*/
+
+.field {
+    display: flex;
+    flex-flow: column-reverse;
+    margin-bottom: calculate-rem(16px);
+}

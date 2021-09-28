@@ -1,0 +1,66 @@
+input[type="radio"].accordion,
+input[type="checkbox"].accordion {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+
+/* Accordion styles */
+.accordion {
+    overflow: hidden;
+}
+
+.accordion-container {
+    width: 100%;
+    color: $color-white;
+    overflow: hidden;
+
+    .accordion-header {
+        display: flex;
+        justify-content: space-between;
+        padding: calculate-rem(16px);
+        background: $color-primary;
+        font-weight: bold;
+        cursor: pointer;
+        color: $color-white;
+
+        /* Icon */
+        &:hover {
+            background: darken($color-primary, 10%);
+        }
+
+        &::after {
+            content: "\276F";
+            width: 1em;
+            height: 1em;
+            text-align: center;
+            transition: all .3s ease;
+        }
+    }
+
+    .accordion-content {
+        max-height: 0;
+        padding: 0 calculate-rem(16px);
+        color: $color-black;
+        background: white;
+        transition: all .3s ease;
+        font-size: calculate-rem(12px);
+    }
+}
+
+// :checked
+input.accordion:checked {
+    +.accordion-header {
+        background: darken($color-primary, 10%);
+
+        &::after {
+            transform: rotate(90deg);
+        }
+    }
+
+    ~.accordion-content {
+        max-height: 100vh;
+        padding: calculate-rem(16px);
+    }
+}

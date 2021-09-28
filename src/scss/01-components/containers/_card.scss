@@ -1,0 +1,57 @@
+.card {
+    width: 100%;
+    background-color: $color-white;
+
+    .card-header {
+        background-color: $color-primary;
+        color: $color-white;
+        padding: calculate-rem(16px);
+        border: 1px solid $color-primary;
+    }
+
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .card-body {
+        border: 1px solid darken($color-white, 10%);
+
+        padding: calculate-rem(16px);
+
+
+
+        .card-title {
+            margin-bottom: 16px;
+            font-weight: bold;
+        }
+
+        .card-subtitle {
+            margin-bottom: 16px;
+        }
+
+        .card-text {
+            margin-bottom: 16px;
+        }
+
+        .card-list {
+            list-style: none;
+            margin-bottom: 16px;
+
+            .card-list-item {
+                padding: calculate-rem(8px) calculate-rem(16px);
+                border: 1px solid darken($color-white, 10%);
+            }
+        }
+
+
+    }
+
+    .card-footer {
+        border: 1px solid darken($color-white, 10%);
+        color: darken($color-white, 20%);
+        padding: calculate-rem(16px);
+
+    }
+
+}

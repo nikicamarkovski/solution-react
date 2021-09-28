@@ -1,0 +1,17 @@
+.chosen-container-single .chosen-single,
+.chosen-container-multi .chosen-choices {
+    border: 1px solid $color-primary;
+    background: $color-white;
+}
+
+.chosen-container .chosen-results li.highlighted {
+    background-color: $color-primary;
+    background-image: none;
+    color: $color-white;
+}
+
+.chosen-container-single .chosen-drop,
+.chosen-container-single .chosen-single,
+.chosen-container-multi .chosen-choices li.search-choice {
+    border-radius: 0;
+}

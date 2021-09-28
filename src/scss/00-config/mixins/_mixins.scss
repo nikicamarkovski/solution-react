@@ -1,0 +1,833 @@
+@import "../variables/grid";
+
+/*
+ #  andy scss library
+    - opensource scss library
+    - documentation : http://gillesbertaux.com/andy/doc
+*/
+// @import "andy-mixin";
+
+/*
+ #  family-scss
+    - Sass mixins which will help you to manage the style of :nth-child’ified elements, in an easy and classy way
+    - documentation : https://lukyvj.github.io/family.scss/
+*/
+// @import "family-mixin";
+
+@mixin materialIcons {
+    font-family: "Material Icons";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+    /* Support for IE. */
+    font-feature-settings: "liga";
+}
+
+@mixin absolute-center-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin absolute-right-center {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin absolute-left-center {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+//Checking order ascending in grid breakpoint and container
+@mixin _assert-ascending($map, $map-name) {
+    $prev-key: null;
+    $prev-num: null;
+
+    @each $key, $num in $map {
+        @if $prev-num==null {
+            // Do nothing
+        } @else if not comparable($prev-num, $num) {
+            @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+        } @else if $prev-num>=$num {
+            @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+        }
+
+        $prev-key: $key;
+        $prev-num: $num;
+    }
+}
+
+//Checking grid breakpoint at first array start 0
+@mixin _assert-starts-at-zero($map) {
+    $values: map-values($map);
+    $first-value: nth($values, 1);
+
+    @if $first-value !=0 {
+        @warn "First breakpoint in `$grid-breakpoints` must start at 0, but starts at #{$first-value}.";
+    }
+}
+
+//Running mixins for checking grid
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints);
+@include _assert-ascending($container-max-widths, "$container-max-widths");
+
+//Function  for grid bootstrap
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+    $n: index($breakpoint-names, $name);
+    @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+    $min: map-get($breakpoints, $name);
+    @return if($min !=0, $min, null);
+}
+
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+    $next: breakpoint-next($name, $breakpoints);
+    @return if($next, breakpoint-min($next, $breakpoints) - 0.02px, null);
+}
+
+@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+    @return if(breakpoint-min($name, $breakpoints) ==null, "", "-#{$name}");
+}
+
+//Mixin for media query up from breakpoint depend on gridbreakpoint _grid.scss
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-min($name, $breakpoints);
+
+    @if $min {
+        @media (min-width: $min) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+//Mixin for media query down from breakpoint depend on gridbreakpoint _grid.scss
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+    $max: breakpoint-max($name, $breakpoints);
+
+    @if $max {
+        @media (max-width: $max) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+//Mixin for media query between from two breakpoint depend on gridbreakpoint _grid.scss
+@mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-min($lower, $breakpoints);
+    $max: breakpoint-max($upper, $breakpoints);
+
+    @if $min !=null and $max !=null {
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    } @else if $max==null {
+        @include media-breakpoint-up($lower, $breakpoints) {
+            @content;
+        }
+    } @else if $min==null {
+        @include media-breakpoint-down($upper, $breakpoints) {
+            @content;
+        }
+    }
+}
+
+//Mixin create row
+@mixin make-row() {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: ($grid-gutter-width / -2);
+    margin-left: ($grid-gutter-width / -2);
+}
+
+//Mixins container create container fluid
+@mixin make-container() {
+    width: 100%;
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+//Mixin create container max width
+@mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+    @each $breakpoint, $container-max-width in $max-widths {
+        @include media-breakpoint-up($breakpoint, $breakpoints) {
+            max-width: $container-max-width;
+        }
+    }
+}
+
+/*
+# name : all-zero;
+# function : make full screen;
+# example of usage :
+    .overlay{
+        position : absolute;
+        @include all-zero;
+    }
+*/
+@mixin all-zero {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/*
+# name : push-auto;
+# function : centering block component;
+# example :
+    .header{
+        width : 200px;
+        height: 10px;
+        @include push-auto
+    }
+*/
+@mixin push-auto {
+    margin: {
+        left: auto;
+        right: auto;
+    }
+}
+
+/*
+# name : pseudo;
+# function : basic props for pseude element;
+# example :
+    div::after {
+        @include pseudo;
+        top: -1rem; left: -1rem;
+        width: 1rem; height: 1rem;
+    }
+*/
+@mixin pseudo($display: block, $pos: absolute, $content: "") {
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+/*
+# name : font-styles;
+# function : basic props for pseude element;
+# example :
+    .header{
+        @include font-style('Roboto', 20px, $red, bold, 20px. 10px )
+    }
+*/
+@mixin font-style($family: false, $size: false, $colour: false, $weight: false, $lh: false, $ls: false) {
+    @if $family {
+        font-family: $family;
+    }
+
+    @if $size {
+        font-size: $size;
+    }
+
+    @if $colour {
+        color: $colour;
+    }
+
+    @if $weight {
+        font-weight: $weight;
+    }
+
+    @if $lh {
+        line-height: $lh;
+    }
+
+    @if $ls {
+        letter-spacing: $ls;
+    }
+}
+
+/*
+# name : input-placeholder;
+# function : basic props for pseude element;
+# example :
+    input,
+    textarea {
+        @include input-placeholder {
+            color: $grey;
+        }
+    }
+*/
+
+@mixin input-placeholder {
+    &.placeholder {
+        @content;
+    }
+
+    &:-moz-placeholder {
+        @content;
+    }
+
+    &::-moz-placeholder {
+        @content;
+    }
+
+    &:-ms-input-placeholder {
+        @content;
+    }
+
+    &::-webkit-input-placeholder {
+        @content;
+    }
+}
+
+/*
+# name z;
+# function : fix multiple z-index conflict issue;
+# example :
+    .site-header {
+        z-index: z('site-header');
+    }
+*/
+
+$z-indexes: ("outdated-browser", "modal", "site-header", "page-wrapper", "site-footer");
+
+@function z($name) {
+    @if index($z-indexes, $name) {
+        @return (length($z-indexes) - index($z-indexes, $name))+1;
+    } @else {
+        @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+        @return null;
+    }
+}
+
+/*
+# name calculate-rem;
+# function : convert px to rem;
+# example :
+    p {
+       font-size: calculate-rem(12px)
+    }
+*/
+
+@function calculate-rem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+}
+
+/*
+# name hidden;
+# function : Hide from both screenreaders and browsers;
+# example :
+    .hide-mobile {
+       @include hidden
+    }
+*/
+@mixin hidden {
+    display: none;
+    visibility: hidden;
+}
+
+/*
+# name hidden;
+# function : Hide from both screenreaders and browsers;
+# example :
+    .show-desktop {
+       @include visible
+    }
+*/
+
+@mixin visible($state: "block") {
+    display: unquote($state);
+    visibility: visible;
+}
+
+/*
+# name font-size-to-rem;
+# function : Convert font size to rem;
+# example :
+    .label {
+       @include font-size-to-rem(16)
+    }
+*/
+@mixin font-size-to-rem($size, $base: 16) {
+    font-size: $size; // fallback for old browsers
+    font-size: ($size / $base) * 1rem;
+}
+
+/*
+# name retina;
+# function : suport retina display;
+# example :
+    .logo {
+        background-image: url("img/logo.png");
+        @include retina("img/logo@2x.png", 100px, 21px);
+    }
+*/
+@mixin retina($image, $width, $height) {
+    @media (min--moz-device-pixel-ratio: 1.3),
+        (-o-min-device-pixel-ratio: 2.6/2),
+        (-webkit-min-device-pixel-ratio: 1.3),
+        (min-device-pixel-ratio: 1.3),
+        (min-resolution: 1.3dppx) {
+        /* Serving 2x image on Retina display */
+        background-image: url($image);
+        background-size: $width $height;
+    }
+}
+
+/*
+# name keyframes;
+# function : generate keyframe webkit;
+# example :
+    @include keyframes(animate) {
+        50% {
+            transform: rotate(90deg);
+        }
+        100% {
+            transform: rotate(-90deg);
+        }
+    }
+*/
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+/*
+# name gradient;
+# function : generate keyframe webkit;
+# example :
+    .gradient {
+        @include gradient(#07c, #06f, vertical);
+    }
+
+*/
+@mixin gradient($start-color, $end-color, $orientation) {
+    background: $start-color;
+
+    @if $orientation== "vertical" {
+        background: -webkit-linear-gradient(top, $start-color, $end-color);
+        background: linear-gradient(to bottom, $start-color, $end-color);
+    } @else if $orientation== "horizontal" {
+        background: -webkit-linear-gradient(left, $start-color, $end-color);
+        background: linear-gradient(to right, $start-color, $end-color);
+    } @else {
+        background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+        background: radial-gradient(ellipse at center, $start-color, $end-color);
+    }
+}
+
+/*
+# name font-face;
+# function : create font face;
+# example :
+    @include font-face("MyFont", "path/to/MyFont", $style: normal, $weight: normal);
+
+*/
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
+    @font-face {
+        font-family: quote($font-name);
+        src: url($file-name + ".eot");
+        src: url($file-name + ".eot?#iefix") format("embedded-opentype"), url($file-name + ".woff") format("woff"),
+            url($file-name + ".ttf") format("truetype"), url($file-name + ".svg##{$font-name}") format("svg");
+        font-weight: $weight;
+        font-style: $style;
+    }
+}
+
+/*
+# name truncate-text;
+# function : truncate text and make it short;
+# example :
+    p {
+        background-color: $gray;
+        color: white;
+        padding: 10px 20px;
+        width: 300px;
+        margin: 0 auto;
+        @include truncate-text;
+    }
+
+*/
+@mixin truncate-text($overflow: ellipsis) {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: $overflow;
+}
+
+/*
+# name cover-background;
+# function : background-size: cover;
+
+# example :
+    div {
+        background-image: url("cute-doggo.png");
+        @include cover-background;
+    }
+
+*/
+@mixin cover-background {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/*
+# name link-color;
+# function : set hoover, active, and focus automatic;
+
+# example :
+    a {
+        @include link-color($red)
+    }
+
+*/
+
+@mixin link-color($color: "blue") {
+    color: $color;
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: lighten($color, 20%);
+    }
+}
+
+/*
+# name opacity;
+# function : It is OK to use opacity property for modern browsers but not for IE.
+So provide a filter fallback for IE8. You can set opacity from 0 (not visible) to 1
+(completely visible) and filter percentage from 0 to 100. It means you can simply
+multiply the value of opacity by 100 for IE filter.;
+
+# example :
+    .box {
+        @include opacity(0.5);
+    }
+
+*/
+
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacityIE: $opacity * 100;
+    filter: alpha(opacity=$opacityIE);
+}
+
+//Mixin create grid column
+@mixin make-col($size, $columns: $grid-columns) {
+    flex: 0 0 percentage($size / $columns);
+    // Add a `max-width` to ensure content within each column does not blow out
+    // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+    // do not appear to require this.
+    max-width: percentage($size / $columns);
+}
+
+//Mixin create grid col offset
+@mixin make-col-offset($size, $columns: $grid-columns) {
+    $num: $size / $columns;
+    margin-left: if($num==0, 0, percentage($num));
+}
+
+//Mixin for create grid columns
+@mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+    %grid-column {
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: ($gutter / 2);
+        padding-left: ($gutter / 2);
+    }
+
+    @each $breakpoint in map-keys($breakpoints) {
+        $infix: breakpoint-infix($breakpoint, $breakpoints);
+
+        // Allow columns to stretch full width below their breakpoints
+        @for $i from 1 through $columns {
+            .col#{$infix}-#{$i} {
+                @extend %grid-column;
+            }
+        }
+
+        .col#{$infix},
+        .col#{$infix}-auto {
+            @extend %grid-column;
+        }
+
+        @include media-breakpoint-up($breakpoint, $breakpoints) {
+            // Provide basic `.col-{bp}` classes for equal-width flexbox columns
+            .col#{$infix} {
+                flex-basis: 0;
+                flex-grow: 1;
+                max-width: 100%;
+            }
+
+            .col#{$infix}-auto {
+                flex: 0 0 auto;
+                width: auto;
+                max-width: none; // Reset earlier grid tiers
+            }
+
+            @for $i from 1 through $columns {
+                .col#{$infix}-#{$i} {
+                    @include make-col($i, $columns);
+                }
+            }
+
+            .order#{$infix}-first {
+                order: -1;
+            }
+
+            .order#{$infix}-last {
+                order: $columns + 1;
+            }
+
+            @for $i from 0 through $columns {
+                .order#{$infix}-#{$i} {
+                    order: $i;
+                }
+            }
+
+            // `$columns - 1` because offsetting by the width of an entire row isn't possible
+            @for $i from 0 through ($columns - 1) {
+                @if not($infix== "" and $i==0) {
+                    // Avoid emitting useless .offset-0
+                    .offset#{$infix}-#{$i} {
+                        @include make-col-offset($i, $columns);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@function str-replace($string, $search, $replace: "") {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace +
+            str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+@function get-icon($icon, $color: #fff) {
+    $icon: map-get($icons, $icon);
+    $placeholder: "%%COLOR%%";
+
+    $data-uri: str-replace(url($data-svg-prefix + $icon), $placeholder, $color);
+
+    @return str-replace($data-uri, "#", "%23");
+}
+
+// stylelint-disable property-blacklist
+@mixin transition($transition...) {
+    @if length($transition) == 0 {
+        transition: $transition-base;
+    } @else {
+        transition: $transition;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+}
+
+@mixin border-top-radius($radius) {
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+}
+
+@mixin border-right-radius($radius) {
+    border-top-right-radius: $radius;
+    border-bottom-right-radius: $radius;
+}
+
+@mixin border-bottom-radius($radius) {
+    border-bottom-right-radius: $radius;
+    border-bottom-left-radius: $radius;
+}
+
+@mixin border-left-radius($radius) {
+    border-top-left-radius: $radius;
+    border-bottom-left-radius: $radius;
+}
+
+@mixin border-top-left-radius($radius) {
+    border-top-left-radius: $radius;
+}
+
+@mixin border-top-right-radius($radius) {
+    border-top-right-radius: $radius;
+}
+
+@mixin border-bottom-right-radius($radius) {
+    border-bottom-right-radius: $radius;
+}
+
+@mixin border-bottom-left-radius($radius) {
+    border-bottom-left-radius: $radius;
+}
+
+@function theme-color($key: "primary") {
+    @return map-get($theme-colors, $key);
+}
+
+// Request a theme color level
+@function theme-color-level($color-name: "primary", $level: 0) {
+    $color: theme-color($color-name);
+    $color-base: if($level > 0, $color-black-0, $color-white);
+    $level: abs($level);
+
+    @return mix($color-base, $color, $level * $theme-color-interval);
+}
+
+@mixin hover() {
+    &:hover { @content; }
+}
+
+// Tables
+@mixin table-row-variant($state, $background, $border: null) {
+    // Exact selectors below required to override `.table-striped` and prevent
+    // inheritance to nested tables.
+    .table-#{$state} {
+        &,
+        > th,
+        > td {
+        background-color: $background;
+        }
+
+        @if $border != null {
+        th,
+        td,
+        thead th,
+        tbody + tbody {
+            border-color: $border;
+        }
+        }
+    }
+
+    // Hover states for `.table-hover`
+    // Note: this is not available for cells or rows within `thead` or `tfoot`.
+    .table-hover {
+        @debug "color : #{$background}";
+        $hover-background: darken($background, 5%);
+
+        .table-#{$state} {
+        @include hover() {
+            background-color: $hover-background;
+
+            > td,
+            > th {
+            background-color: $hover-background;
+            }
+        }
+        }
+    }
+}
+
+
+@mixin reset-text() {
+    font-family: $font-primary;
+    // We deliberately do NOT reset font-size or word-wrap.
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.5;
+    text-align: left; // Fallback for where `start` is not supported
+    text-align: start;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    letter-spacing: normal;
+    word-break: normal;
+    word-spacing: normal;
+    white-space: normal;
+    line-break: auto;
+}
+  
+@function subtract($value1, $value2, $return-calc: true) {
+    @if $value1 == null and $value2 == null {
+        @return null;
+    }
+
+    @if $value1 == null {
+        @return -$value2;
+    }
+
+    @if $value2 == null {
+        @return $value1;
+    }
+
+    @if type-of($value1) == number and type-of($value2) == number and comparable($value1, $value2) {
+        @return $value1 - $value2;
+    }
+
+    @return if($return-calc == true, calc(#{$value1} - #{$value2}), $value1 + unquote(" - ") + $value2);
+}
+
+@mixin gradient-striped($color: rgba(#fff, .15), $angle: 45deg) {
+    background-image: linear-gradient($angle, $color 25%, transparent 25%, transparent 50%, $color 50%, $color 75%, transparent 75%, transparent);
+}
+
+//Button mixins
+@mixin base-button ($color: #000000, $background-color : #ffffff, $border-color: #ffffff, $ghost:false) {
+
+    color: $color;
+    background-color: $background-color;
+    border: 2px solid $border-color;
+    transition: all .3s ease;
+
+    &.btn-hover {
+        opacity: .8;
+    }
+
+    &:hover,
+    &.btn-hover {
+        opacity: .8;
+    }
+
+    &:disabled,
+    &.btn-disabled {
+
+        opacity: .6;
+
+        &:hover {
+            opacity: .6;
+        }
+
+    }
+
+    &:focus {
+        outline: none;
+    }
+}

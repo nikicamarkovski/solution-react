@@ -1,0 +1,28 @@
+.input-search {
+  //   width: 100%;
+
+  border-radius: calculate-rem(26px);
+  background: $color-white;
+  padding: 0 calculate-rem(26px);
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  border: 2px solid lighten($color-black, 70%);
+
+  input {
+    border: none;
+    width: 100%;
+    padding-left: 0;
+    padding-right: calculate-rem(24px);
+  }
+
+  button.btn-search {
+    width: calculate-rem(32px);
+    height: calculate-rem(32px);
+    border: none;
+    background: transparent;
+    position: absolute;
+    right: calculate-rem(10px);
+  }
+}

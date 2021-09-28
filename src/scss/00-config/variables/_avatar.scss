@@ -1,0 +1,5 @@
+$avatar-base: calculate-rem(16px);
+
+$avatars: (sm: $avatar-base * 2,
+    md: $avatar-base * 4,
+    lg: $avatar-base * 6);

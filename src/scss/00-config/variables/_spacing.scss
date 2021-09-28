@@ -1,0 +1,38 @@
+$spacings: (xxs : calculate-rem(4px),
+    xs : calculate-rem(8px),
+    md : calculate-rem(16px),
+    lg : calculate-rem(24px),
+    xl : calculate-rem(32px),
+    xxl : calculate-rem(64px),
+);
+
+@each $name,
+$spacing in ($spacings) {
+
+    // padding
+
+    .padding-all-#{$name} {
+        padding: $spacing;
+    }
+
+    .padding-hr-#{$name} {
+        padding: 0 $spacing;
+    }
+
+    .padding-vr-#{$name} {
+        padding: $spacing 0;
+    }
+
+    // margin 
+    .margin-all-#{$name} {
+        margin: $spacing;
+    }
+
+    .margin-hr-#{$name} {
+        margin: 0 $spacing;
+    }
+
+    .margin-vr-#{$name} {
+        margin: $spacing 0;
+    }
+}

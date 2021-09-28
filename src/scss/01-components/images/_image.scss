@@ -1,0 +1,17 @@
+@import "./avatar";
+@import "./full-width";
+@import "./thumbnail";
+@import "./circle";
+
+
+
+@each $name,
+$image in ($images) {
+
+    .img-#{$name} {
+        width: $image;
+        height: $image;
+        object-fit: cover;
+    }
+
+}

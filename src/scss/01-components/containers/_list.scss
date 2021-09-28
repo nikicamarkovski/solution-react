@@ -1,0 +1,111 @@
+.list {
+    margin-bottom: calculate-rem(16px);
+    border: 1px solid darken($color-white, 10%);
+}
+
+ol,
+ul {
+    &.list {
+        .list-item {
+            padding: calculate-rem(16px);
+            background-color: $color-white;
+            list-style-position: inside;
+            border-bottom: 1px solid darken($color-white, 10%);
+            font-family: inherit;
+            position: relative;
+
+            .badge {
+
+                font-size: calculate-rem(12px);
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: $color-primary;
+                color: $color-white;
+            }
+
+            i {
+                margin: 0 calculate-rem(16px);
+            }
+
+            &.active {
+                background-color: $color-primary;
+                color: $color-white;
+            }
+
+            &.disabled {
+                background-color: darken($color-white, 10%);
+                color: darken($color-white, 50%);
+            }
+
+            &.icon-right,
+            &.icon-left {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+
+        }
+    }
+
+    &.no-style {
+        .list-item {
+            list-style: none;
+        }
+    }
+
+    &.inline-list {
+        list-style: none;
+        display: inline-flex;
+
+        .list-item {
+            display: inline-block;
+            min-width: calculate-rem(150px);
+            border-right: 1px solid darken($color-white, 10%);
+        }
+    }
+}
+
+div {
+    &.list {
+
+        button,
+        a {
+            &.list-item {
+                padding: calculate-rem(16px);
+                background-color: $color-white;
+                border-left: none;
+                border-right: none;
+                border-top: none;
+                border-bottom: 1px solid darken($color-white, 10%);
+                display: inline-block;
+                text-align: left;
+                width: 100%;
+                color: $color-black;
+                transition: all .3s ease;
+                font-family: inherit;
+
+                &:hover,
+                &.active {
+                    background-color: $color-primary;
+                    color: $color-white;
+                }
+
+                &.disabled {
+                    background-color: darken($color-white, 10%);
+                    color: darken($color-white, 50%);
+                }
+            }
+        }
+    }
+
+    &.no-style {
+        .list-item {
+            list-style: none;
+        }
+    }
+}

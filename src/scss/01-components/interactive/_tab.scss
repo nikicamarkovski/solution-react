@@ -1,0 +1,102 @@
+.tabs {
+
+    &.vertical-tab {
+        display: flex;
+        flex-direction: row;
+
+        .tab-nav {
+            li {
+                min-width: calulate-rem(150px);
+                width: 100%;
+            }
+        }
+
+        .tab-container {
+            margin-top: 0;
+            margin-bottom: 0;
+
+            .tab {
+                padding: 16px;
+            }
+        }
+    }
+
+    &.horizontal-tab {
+
+
+        .tab-container {
+            .tab {
+                padding: 16px;
+            }
+        }
+    }
+
+
+    .tab-container {
+        clear: left;
+        margin-top: calculate-rem(-4px);
+        margin-bottom: calculate-rem(16px);
+        background-color: $color-white;
+        padding: 0;
+        /* add height if you want equal panels */
+
+        .tab {
+            background-color: $color-white !important;
+
+            img {
+
+                margin-top: 10px;
+            }
+
+            .p {
+
+                margin-bottom: 0px;
+            }
+        }
+
+    }
+
+    /* reset ul defaults  */
+    .tab-nav {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    /* set li properties  */
+    .tab-nav li {
+        // float: left;
+
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        min-width: calulate-rem(100px);
+        display: inline-block;
+        min-width: 100px;
+
+    }
+
+    /* all formatting goes inside 'a' */
+    .tab-nav a {
+        display: block;
+        text-decoration: none;
+        color: $color-black;
+        font-weight: bold;
+        padding: calculate-rem(8px);
+        // margin-right: 4px;
+        /* spaces out the tabs  */
+        background-color: $color-white;
+        border-bottom: 4px solid $color-white;
+        text-align: center;
+        /* negative margin will move it down
+	                         to blend in with outer border  */
+    }
+
+
+    .tab-nav a.active {
+        border-bottom: 4px solid darken($color-primary, 10%);
+        background-color: $color-primary;
+        color: $color-white;
+        font-weight: bold;
+    }
+}

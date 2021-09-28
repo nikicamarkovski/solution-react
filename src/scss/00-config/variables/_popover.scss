@@ -1,0 +1,24 @@
+$zindex-popover:                    1060;
+$popover-font-size:                 1rem;
+$popover-bg:                        $color-white;
+$popover-max-width:                 276px;
+$popover-border-width:              1px;
+$popover-border-color:              rgba($color-black-0, .2);
+$popover-border-radius:             0.25rem;
+$popover-inner-border-radius:       subtract($popover-border-radius, $popover-border-width);
+$popover-box-shadow:                0 .25rem .5rem rgba($color-black-0, .2);
+
+$popover-header-bg:                 darken($popover-bg, 3%);
+$popover-header-color:              null;
+$popover-header-padding-y:          .5rem;
+$popover-header-padding-x:          .75rem;
+
+$popover-body-color:                #212529;
+$popover-body-padding-y:            $popover-header-padding-y;
+$popover-body-padding-x:            $popover-header-padding-x;
+
+$popover-arrow-width:               1rem;
+$popover-arrow-height:              .5rem;
+$popover-arrow-color:               $popover-bg;
+
+$popover-arrow-outer-color:         fade-in($popover-border-color, .05);

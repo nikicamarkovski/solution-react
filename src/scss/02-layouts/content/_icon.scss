@@ -1,0 +1,198 @@
+.icon-xs {
+  position: relative;
+
+  &:after {
+    width: 25px;
+    height: 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include absolute-center-center;
+    content: "";
+  }
+}
+
+.icon-blank {
+  position: relative;
+  display: inline-block;
+
+  &:after {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    @include absolute-center-center;
+    content: "";
+  }
+}
+
+.icon-sm {
+  @extend .icon-blank;
+  width: 45px;
+  height: 45px;
+}
+
+.icon-md {
+  @extend .icon-blank;
+  width: 85px;
+  height: 85px;
+}
+
+.icon-lg {
+  @extend .icon-blank;
+  width: 120px;
+  height: 120px;
+}
+
+// example of use
+
+.icon-search-white {
+  @extend .icon-xs;
+
+  &:after {
+    background-image: get-icon("search", $color-white);
+  }
+}
+
+.icon-search-primary {
+  @extend .icon-xs;
+
+  &:after {
+    background-image: get-icon("search", $color-primary);
+  }
+}
+
+.icon-message-white {
+  @extend .icon-xs;
+
+  &:after {
+    background-image: get-icon("message", $color-white);
+  }
+}
+
+.icon-plus-white {
+  @extend .icon-xs;
+
+  &:after {
+    background-image: get-icon("plus", $color-white);
+  }
+}
+
+.icon-chevron-right-white {
+  @extend .icon-xs;
+  transform: rotate(270deg);
+
+  &:after {
+    background-image: get-icon("chevron", $color-white);
+  }
+}
+
+.icon-chevron-left-white {
+  @extend .icon-xs;
+  transform: rotate(90deg);
+
+  &:after {
+    background-image: get-icon("chevron", $color-white);
+  }
+}
+
+.icon-arrow-right-white {
+  @extend .icon-xs;
+
+  &:after {
+    background-image: get-icon("arrow", $color-white);
+  }
+}
+
+.icon-arrow-left-white {
+  @extend .icon-xs;
+  transform: rotate(180deg);
+
+  &:after {
+    background-image: get-icon("arrow", $color-white);
+  }
+}
+
+.icon-arrow-right-primary {
+  @extend .icon-xs;
+
+  &:after {
+    background-image: get-icon("arrow", $color-primary);
+  }
+}
+
+.icon-chevron-right-primary {
+  @extend .icon-xs;
+  transform: rotate(270deg);
+
+  &:after {
+    background-image: get-icon("chevron", $color-primary);
+  }
+}
+
+.icon-plus-primary {
+  @extend .icon-xs;
+
+  &:after {
+    background-image: get-icon("plus", $color-primary);
+  }
+}
+
+.icon-search-primary {
+  @extend .icon-xs;
+
+  &:after {
+    background-image: get-icon("search", $color-primary);
+  }
+}
+
+.icon-linkedin-primary {
+  @extend .icon-xs;
+
+  &:after {
+    background-image: get-icon("linkedin", $color-primary);
+  }
+}
+
+.icon-twitter-primary {
+  @extend .icon-xs;
+
+  &:after {
+    background-image: get-icon("twitter", $color-primary);
+  }
+}
+
+.icon-spinner {
+  @extend .icon-xs;
+
+  &:after {
+    background-image: get-icon("spinner", $color-primary);
+  }
+}
+
+.icon-spinner-white {
+  @extend .icon-xs;
+
+  &:after {
+    background-image: get-icon("spinner", $color-white);
+  }
+}
+
+
+.icon-loader {
+  @extend .icon-xs;
+
+  &:after {
+    background-image: get-icon("circle-loading", $color-primary);
+  }
+}
+
+.icon-loader-white {
+  @extend .icon-xs;
+
+  &:after {
+    background-image: get-icon("circle-loading", $color-white);
+  }
+}

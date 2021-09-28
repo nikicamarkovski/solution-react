@@ -1,0 +1,109 @@
+.custom-file {
+  position: relative;
+  display: inline-flex;
+  input[type="file"] {
+    width: 0;
+    height: 0;
+    position: absolute;
+    z-index: -1;
+    padding: 0;
+    border: none;
+  }
+
+  label {
+    padding: 1rem 2rem;
+    font-size: 0.75rem;
+    color: #fff;
+    background-color: $color-primary;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid $color-primary;
+    &:hover {
+      opacity: .8;
+    }
+  }
+
+  .icon-upload {
+    background: get-icon("icon-upload", $color-white);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 1.25rem;
+    height: 0.75rem;
+    display: inline-flex;
+    margin-right: 0.75rem;
+  }
+
+  &.with-input {
+    label {
+      padding: 0;
+      background-color: unset;
+      display: flex;
+      min-width: 30rem;
+      > span {
+        min-width: calc(30rem - 14rem);
+        padding: 1rem 2rem;
+        font-size: 0.75rem;
+        color: $color-primary;
+      }
+      strong {
+        padding: 1rem 2rem;
+        background-color: $color-primary;
+        min-width: 14rem;
+      }
+    }
+  }
+}
+
+.custom-file-uploader {
+  background-color: $color-light-gray;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 20rem;
+  border: 2px dashed $color-black-1;
+  .uploader-file {
+    position: absolute;
+    width: 100%;
+    height: 20rem;
+    z-index: 2;
+    opacity: 0;
+    padding: 0;
+    border: none;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+  }
+
+  .uploader-text {
+    height: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+    text-align: center;
+    > p {
+      margin-top: 1rem;
+    }
+  }
+
+  .uploader-image {
+    width: 2rem;
+  }
+
+  &.is-haveimage {
+    .uploader-text {
+      padding: 0;
+      > p {
+        display: none;
+      }
+    }
+
+    .uploader-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}

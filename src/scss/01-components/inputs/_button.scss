@@ -1,0 +1,22 @@
+button {
+    box-shadow: none;
+    border: none;
+    outline: none;
+}
+
+.btn-black {
+    font-size: 14px;
+   
+    padding: 12px  32px;
+    background-color:$color-primary-black;
+    color: $color-primary-white;
+    text-transform: uppercase;
+}
+.btn-blue {
+    font-size: 15px;
+    color: $color-primary-white;
+    line-height: 30px;
+    padding: 6px 40px;
+    background-color: #1a18f7;
+    text-transform: uppercase;
+}

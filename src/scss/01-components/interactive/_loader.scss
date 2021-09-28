@@ -1,0 +1,38 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner-loading {
+  display: inline-flex;
+  align-items: center;
+  > i {
+    animation: spin 1s infinite linear forwards;
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    &::after {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  p {
+    margin-left: 1rem;
+  }
+
+  &.center {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    p {
+      margin-top: 0.5rem;
+      margin-left: 0;
+    }
+  }
+}

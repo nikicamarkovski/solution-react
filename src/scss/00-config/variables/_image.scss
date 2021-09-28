@@ -1,0 +1,8 @@
+$image-base: calculate-rem(16px);
+
+$images: (xs: $image-base,
+    sm: $image-base * 2,
+    md: $image-base * 4,
+    lg: $image-base * 8,
+    xl: $image-base * 10,
+);

@@ -1,0 +1,48 @@
+/**
+* Add a transition to the label and input.
+* I'm not even sure that touch-action: manipulation works on
+* inputs, but hey, it's new and cool and could remove the 
+* pesky delay.
+*/
+
+
+input:focus , textarea{
+    outline: none;
+}
+.input-field {
+    position: relative;
+    margin: 10px 2.5px 20px 2.5px;
+    textarea {
+        resize: none;
+
+    }
+}
+
+input , textarea{
+    display: inline-block;
+    border: none;
+    border-bottom: 1px solid  #dddddd;
+    color: #444;
+    padding: 10px;
+    width: 100%;
+  
+}
+
+
+label {
+    color: #999;
+    position: absolute;
+    pointer-events: none;
+    left: 0px;
+    top: 0px;
+    transition: 0.2s;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+input:focus  ~ label , input:valid ~ label  , textarea:focus ~ label , textarea:valid ~ label{
+    top: -20px;
+    color:$color-light-black;
+}
+
+

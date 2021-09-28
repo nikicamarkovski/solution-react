@@ -1,0 +1,199 @@
+// ANIMATE INTERACTIVE ELEMENTS
+
+a,
+input,
+textarea,
+select,
+button {
+	transition:all .2s ease-in-out;
+}
+
+// BASIC STYLES RESET
+
+html,
+body {
+	width:100%;
+	min-height:100%;
+	-ms-text-size-adjust:100%;
+	-webkit-text-size-adjust:100%;
+}
+
+html,
+html a {
+	-webkit-font-smoothing:antialiased;
+}
+
+@supports (-ms-ime-align:auto) {
+    html {
+        overflow:hidden;
+        height:100%;
+    }
+
+    body {
+        overflow:auto;
+        height:100%;
+    }
+}
+
+@media screen and (-ms-high-contrast:active), (-ms-high-contrast:none) {
+    html {
+        overflow:hidden;
+        height:100%;
+    }
+
+    body {
+        overflow:auto;
+        height:100%;
+    }
+}
+
+* {
+	margin:0;
+	padding:0;
+	box-sizing:border-box !important;
+}
+
+a {
+    text-decoration:none;
+}
+
+img {
+	display:block;
+	border:0;
+}
+
+sup {
+    font-size:10px !important;
+}
+
+// CONTENT HOLDERS
+
+div,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+	display:block;
+	zoom:1;
+}
+
+div:after,
+article:after,
+aside:after,
+details:after,
+figcaption:after,
+figure:after,
+footer:after,
+header:after,
+hgroup:after,
+main:after,
+nav:after,
+section:after,
+summary:after,
+ul:after {
+	content:'';
+	display:block;
+	clear:both;
+}
+
+audio,
+canvas,
+progress,
+video {
+	display:inline-block;
+	vertical-align:baseline;
+}
+
+audio:not([controls]),
+[hidden],
+template {
+	display:none;
+	height:0;
+}
+
+// FORM ELEMENTS
+
+button {
+	overflow:visible;
+}
+
+button,
+select {
+	text-transform:none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	-webkit-appearance:button;
+	cursor:pointer;
+}
+
+button[disabled],
+html input[disabled] {
+	cursor:default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border:0;
+	padding:0;
+}
+
+input {
+	line-height:normal;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	box-sizing:border-box;
+	padding:0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	height:auto;
+}
+
+fieldset {
+	display:block;
+	padding:0;
+}
+
+legend {
+	display:block;
+	border:0;
+	padding:0;
+}
+
+textarea {
+	overflow:auto;
+}
+
+// TABLES
+
+table {
+    width:100%;
+	border-collapse:collapse;
+	border-spacing:0;
+    margin:0 !important;
+}
+
+td,
+th {
+	padding:0;
+}
+
+i.material-icons {
+	width:auto;
+	flex-grow:0;
+}

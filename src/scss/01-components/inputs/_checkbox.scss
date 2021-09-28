@@ -1,0 +1,76 @@
+// Variables
+$checkbox-width: 18px;
+
+// Checkboxes
+input[type="checkbox"].checkbox {
+  position: absolute;
+  left: -9999px;
+
+  & + label {
+    position: relative;
+    display: inline-block;
+    padding: 6px 10px 6px ($checkbox-width + 10);
+    cursor: pointer;
+
+    // Default State
+    &:before {
+      display: block;
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      margin: (-$checkbox-width/2) 0 0;
+      width: $checkbox-width;
+      height: $checkbox-width;
+      background-image: get-icon("checkbox-unchecked", $color-primary);
+    }
+  }
+
+  // Checked State
+  &:checked + label {
+    &:before {
+      background-image: get-icon("checkbox-checked", $color-primary);
+    }
+  }
+
+  // Disabled State
+  &:disabled {
+    & + label {
+      cursor: not-allowed;
+
+      &:before {
+        background-image: get-icon("checkbox-unchecked", $color-light-gray);
+      }
+    }
+
+    // Disabled Checked
+    &:checked + label {
+      &:before {
+        background-image: get-icon("checkbox-checked", $color-light-gray);
+      }
+    }
+  }
+}
+
+// Extra layout styling
+.checkbox-container {
+  position: relative;
+  display: block;
+
+  .message-error {
+    display: block;
+    margin: calculate-rem(8px) calculate-rem(28px);
+  }
+}
+
+.checkbox-container-inline {
+  position: relative;
+  display: inline-flex;
+  min-width: calculate-rem(200px);
+  flex-direction: column;
+
+  .message-error {
+    display: block;
+    margin: calculate-rem(8px) calculate-rem(28px);
+  }
+}

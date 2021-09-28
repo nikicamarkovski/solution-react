@@ -1,0 +1,44 @@
+$color-green-1: #23a474;
+$color-red-1: #f8333c;
+$color-yellow-1: #fcab10;
+$color-blue-1: #5bc0eb;
+$color-black-1: #293241;
+$color-white-1: #ffffff;
+$color-gray-1: #f8f9fa;
+$color-black-0: #000;
+
+$color-primary: $color-green-1;
+$color-secondary: $color-yellow-1;
+$color-black: $color-black-1;
+$color-white: $color-white-1;
+$color-light-gray: lighten($color-black, 70%);
+
+// information
+$color-error: $color-red-1;
+$color-warning: $color-yellow-1;
+$color-success: $color-green-1;
+$color-info: $color-blue-1;
+
+$colors: (
+  primary: $color-primary,
+  secondary: $color-secondary,
+  black: $color-black,
+  white: $color-white,
+  error: $color-error,
+  warning: $color-warning,
+  success: $color-success,
+  info: $color-info,
+);
+
+$colors-message: (
+  error: $color-error,
+  warning: $color-warning,
+  success: $color-success,
+  info: $color-info,
+);
+
+$color-primary-black: #0e0e0e;
+$color-primary-white:#ffffff;
+$color-primary-grey:#939393;
+$color-light-black : #272727;
+$color-light-blue : #1a18f7;

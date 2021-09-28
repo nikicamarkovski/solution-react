@@ -1,0 +1,34 @@
+.breadcrumb {
+    list-style: none;
+    margin-bottom: calculate-rem(16px);
+
+    .breadcrumb-item {
+        display: inline;
+        font-size: calculate-rem(14px);
+        font-weight: bold;
+
+        &.active {
+            a {
+                color: $color-black;
+                pointer-events: none;
+            }
+        }
+
+        &::before {
+            content: '/';
+            padding: 2px;
+            display: inline-block;
+            margin: 0 calculate-rem(8px);
+
+
+        }
+
+        &:first-child {
+            &::before {
+                display: none;
+            }
+        }
+
+
+    }
+}

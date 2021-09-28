@@ -1,0 +1,42 @@
+$table-cell-padding:          .75rem;
+$table-cell-padding-sm:       .3rem;
+
+$table-color:                 #212529;
+$table-bg:                    null;
+$table-accent-bg:             rgba(#000, .05);
+$table-hover-color:           $table-color;
+$table-hover-bg:              rgba(#000, .075);
+$table-active-bg:             $table-hover-bg;
+
+$table-border-width:          1px;
+$table-border-color:          $color-black;
+
+$table-head-bg:               #28292b;
+$table-head-color:            #495057;
+
+$table-dark-color:            #fff;
+$table-dark-bg:               #343a40;
+$table-dark-accent-bg:        rgba(#fff, .05);
+$table-dark-hover-color:      $table-dark-color;
+$table-dark-hover-bg:         rgba(#fff, .075);
+$table-dark-border-color:     lighten($table-dark-bg, 7.5%);
+
+$table-striped-order:         odd;
+
+$table-caption-color:         #6c757d;
+
+$table-bg-level:              -9;
+$table-border-level:          -6;
+
+$theme-color-interval:      8% !default;
+$theme-colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+  (
+    "primary":    $color-primary,
+    "secondary":  $color-secondary,
+    "light":      $color-light-gray,
+    "dark":       $color-black
+  ),
+  $theme-colors
+);

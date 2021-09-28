@@ -1,0 +1,30 @@
+.menu-text {
+    font-size: calculate-rem(18px);
+    color: $color-primary-black;
+    text-transform: uppercase;
+    font-weight: bold;
+
+}
+.header-title {
+    font-size: calculate-rem(210px);
+    font-weight: bolder;
+    
+    text-transform: uppercase;
+}
+.news-text {
+    color: $color-light-black;
+    font-size: calculate-rem(30px);
+    line-height: 32px;
+
+}
+.brand {
+    color: $color-primary-grey;
+    font-size: calculate-rem(15px);
+    line-height: 30px;
+}
+.view-cases {
+    color : $color-light-blue;
+    font-size: 14px;
+    line-height: 30px;
+    font-weight: 700;
+}
