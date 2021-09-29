@@ -73,14 +73,38 @@
       margin-top: 70px;
     }
   }
+&-content {
+  width: 60%;
+}
 }
 
 .social-networks {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  a {
+    margin-right: 30px;
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
   .facebook { 
     &::after{
       content: url("../assets/Icons/icon-fb.svg");
       display: block;
     
+    }
+  }
+  .twitter {
+    &::after{
+      content: url("../assets/Icons/icon-twitter.svg");
+      display: block;
+    
+    }
+  }
+  .instagram {
+    &::after {
+      content: url("../assets/Icons/icon-instagram.svg");
     }
   }
 }

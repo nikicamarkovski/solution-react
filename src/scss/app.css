@@ -863,9 +863,40 @@ multiply the value of opacity by 100 for IE filter.;
   margin-top: 70px;
 }
 
+.contact-form-content {
+  width: 60%;
+}
+
+.social-networks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.social-networks a {
+  margin-right: 30px;
+}
+
+.social-networks a:last-child {
+  margin-right: 0px;
+}
+
 .social-networks .facebook::after {
   content: url("../assets/Icons/icon-fb.svg");
   display: block;
+}
+
+.social-networks .twitter::after {
+  content: url("../assets/Icons/icon-twitter.svg");
+  display: block;
+}
+
+.social-networks .instagram::after {
+  content: url("../assets/Icons/icon-instagram.svg");
 }
 
 .bg-primary {
@@ -4570,6 +4601,76 @@ header .header-button {
 .burger-menu::after {
   content: url("../assets/Icons/icon-menu.svg");
   display: block;
+}
+
+footer {
+  padding: 98px 0px 112px 0px;
+  margin-top: 80px;
+  background-color: black;
+}
+
+footer .dept-logo {
+  width: 25%;
+}
+
+footer .dept-logo::after {
+  content: url("../assets/Icons/icon-dept-white.svg");
+  display: block;
+}
+
+footer .links-top a {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+footer .footer-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #3e3e3e;
+}
+
+footer .links-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer .links-top a {
+  font-size: 18px;
+  padding-right: 26px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+footer .adress {
+  width: 75%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: auto;
+  padding-top: 56px;
+}
+
+footer .adress a {
+  color: white;
+}
+
+footer .adress p {
+  color: #808080;
+}
+
+footer .copyright {
+  margin-left: auto;
 }
 
 .icon-xs, .icon-search-white, .icon-search-primary, .icon-message-white, .icon-plus-white, .icon-chevron-right-white, .icon-chevron-left-white, .icon-arrow-right-white, .icon-arrow-left-white, .icon-arrow-right-primary, .icon-chevron-right-primary, .icon-plus-primary, .icon-linkedin-primary, .icon-twitter-primary, .icon-spinner, .icon-spinner-white, .icon-loader, .icon-loader-white {

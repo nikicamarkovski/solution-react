@@ -18,7 +18,7 @@ export const ContactForm = () => {
                         </div>
                         <div className="input-field">
 
-                            <input type="email" required />
+                            <input type="text" required />
                             <label>Input field 1</label>
                         </div>
                         <div className="input-field">
