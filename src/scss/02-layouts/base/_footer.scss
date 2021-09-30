@@ -1,7 +1,39 @@
+.footer-content {
+    display: flex;
+    margin-top: 80px;
+    .footer-right-content {
+        width: 15%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        a {
+            position: relative;
+            color: #1a18f7;
+            font-size: 18px;
+            line-height: 32px;
+            text-transform: uppercase;
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            &::before {
+                content: url('../assets/Icons/icon-scroll-to-top.svg');
+                position: block;;
+            }
+        }
+        @media screen and (max-width:  $breakpoint-mobile) {
+            display: none;
+       }
+    }
+}
 footer {
     padding: 98px 0px 112px 0px;
-    margin-top: 80px;
-   
+  
+    width: 85%;
+    @media screen and (max-width:  $breakpoint-mobile) {
+        padding: 50px 0px 50px 0px;
+        width: 100%;
+   }
     background-color: black;
     .links-top {
         a {
@@ -16,33 +48,83 @@ footer {
         align-items: center;
         padding-bottom: 22px;
         border-bottom: 1px solid #3e3e3e;
+        
+        @media screen and (max-width:  $breakpoint-mobile) {
+            width: 100%;
+            flex-direction: column;
+            align-items: flex-start;
+           }
+           &-wrapper {
+               display: flex;
+               width: 100%;
+               @media screen and (max-width:  $breakpoint-mobile) {
+                width: 100%;
+                
+               }
+           }
     }
     .links-top {
         display: flex;
         align-items: center;
+        @media screen and (max-width:  $breakpoint-mobile) {
+          
+            flex-direction: column;
+            div {
+                display: flex;
+                flex-direction: column;
+            }
+           }
         a {
-            font-size: 18px;
+            font-size: 14px;
             padding-right: 26px;
             text-transform: uppercase;
             font-weight: 700;
+            @media screen and (max-width:  $breakpoint-tablet) {
+          
+                font-size: 12px;
+               }
         }
     }
     .adress {
-        width: 75%;
+        width: 80%;
         display: flex;
         margin-left: auto;
         padding-top: 56px;
+        @media screen and (max-width:  $breakpoint-mobile) {
+            width: 100%;
+            flex-direction: column;
+           }
         a {
             color: white;
-       
+            margin-right: 20px;
+            font-size: 13px;
         }
         p {
             color: #808080;
+            margin-right: 20px;
+            font-size: 13px;
+            @media screen and (max-width:  $breakpoint-mobile) {
+                padding-bottom: 6px;
+               }
+            &:last-child {
+                margin-right: 0px;
+            }
         }
     }
     .copyright {
         margin-left: auto;
+        @media screen and (max-width:  $breakpoint-mobile) {
+                margin-left: 0px;
+                padding-top: 40px;
+           }
        
+    }
+    .dept-logo {
+        margin-bottom: 0px!important;
+        @media screen and (max-width:  $breakpoint-mobile) {
+           display: none;
+           
+           }
     }
     
 }

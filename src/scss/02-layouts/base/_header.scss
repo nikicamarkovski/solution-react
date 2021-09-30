@@ -4,9 +4,15 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    min-height: 800px;
-    height: 800px;
-    padding-top: 57.14;
+    min-height: 900px;
+    height: 900px;
+    // padding-top: 57.14px;
+    @media screen and (max-width:  $breakpoint-mobile) {
+        min-height: 300px;
+        height: 300px;
+        margin-top: 50px;
+           
+           }
     .container {
         height: 100%;
     }
@@ -22,6 +28,11 @@ header {
         background-size: contain;
         width: 100px;
         height: 28px;
+        @media screen and (max-width:  $breakpoint-mobile) {
+            width: 50px;
+            height: 20px;
+            
+            }
         
     }
     &-menu {
@@ -36,14 +47,36 @@ header {
 }
 .header-body {
     padding-top: 80px;
+    @media screen and (max-width:  $breakpoint-mobile) {
+    padding-top: 30px;
+        
+        }
 }
 .header-button {
     margin-top: 280px;
-  
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    @media screen and (max-width:  $breakpoint-mobile) {
+        margin-top: 125px;
+        justify-content: center;
+        align-items: center;
+            
+     }
 }
+
+}
+.sticky {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top:0px;
+    z-index:200;
+    background-color:white;
+    height: 50px;
+    padding: 0px 20px !important;
+    
+
 }
 .burger-menu {
     padding-right: 0px !important;

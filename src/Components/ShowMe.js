@@ -36,6 +36,7 @@ export const ShowMe = ({getSelectState}) => {
     return (
    
         <div className="show-me">
+        <div className="filter-content">
         <p>Show me</p>
             <div className="container-select">
               
@@ -45,6 +46,8 @@ export const ShowMe = ({getSelectState}) => {
                 onChange={handleOnChange}
                 />
             </div>
+            </div>
+            <div className="filter-content">
             <p>in</p>
             <div className="container-select">
              
@@ -54,6 +57,7 @@ export const ShowMe = ({getSelectState}) => {
                 onChange={handleOnChange}
 
                 />
+                </div>
             </div>
         </div>
    

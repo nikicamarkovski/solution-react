@@ -12,28 +12,54 @@
   flex-wrap: wrap;
   column-gap: 2%;
   row-gap: 80px;
+  @media screen and (max-width:  $breakpoint-mobile) {
+    flex-direction: column;
+    
+ }
   img {
     width: 100%;
     height: 500px;
     object-fit: cover;
+    @media screen and (max-width:  $breakpoint-mobile) {
+      
+      height: 300px;
+         
+         }
   }
   .news-section-half {
     width: 49%;
+    @media screen and (max-width:  $breakpoint-mobile) {
+     width: 100%;
+      
+   }
    
   }
   .news-section-full {
     width: 100%;
+    
     &-flex {
       display: flex;
+      @media screen and (max-width:  $breakpoint-mobile) {
+        flex-direction: column !important;
+         
+      }
 
     }
     .main-news {
       width: 70%;
+      @media screen and (max-width:  $breakpoint-mobile) {
+        width: 100%;
+         
+      }
     }
     .sub-news {
       width: 30%;
       height: 500px;
       margin-left: 50px;
+      @media screen and (max-width:  $breakpoint-mobile) {
+        width: 100%;
+         margin-left: 0px;
+      }
       &-content {
         height: 50%;
         border-top: 2px solid #dddddd;
@@ -49,6 +75,11 @@
     .sub-news {
       margin-left: 0px;
       margin-right: 50px;
+      @media screen and (max-width:  $breakpoint-mobile) {
+        margin-right: 0px;
+        flex-direction: column ;
+         
+      }
     }
   }
 }
@@ -56,9 +87,13 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  padding-bottom: 20px;
   &-content {
     width: 25%;
     padding: 30px;
+    @media screen and (max-width:  $breakpoint-mobile) {
+      width: 50%; 
+    }
     img {
       width: 100%;
       height: auto;
@@ -67,20 +102,35 @@
   }
 }
 .contact-form {
+  display: flex;
+  @media screen and (max-width:  $breakpoint-mobile) {
+    flex-direction: column;
+   }
   &-container {
     width: 70%;
+    @media screen and (max-width:  $breakpoint-mobile) {
+     width: 100%;
+    }
   }
-  display: flex;
+
   &-text {
     width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @media screen and (max-width:  $breakpoint-mobile) {
+      width: 100%;
+      flex-direction: row;
+     }
     h4 {
       font-size: 40px;
       line-height: 60px;
       color: #0e0e0e;
       font-weight: 600;
+      @media screen and (max-width:  $breakpoint-mobile) {
+        font-size: 18px;
+        padding-right: 4px;
+       }
     }
   }
   &-input {
@@ -91,10 +141,16 @@
     .input-field {
       width: 48%;
       margin-top: 70px;
+      @media screen and (max-width:  $breakpoint-mobile) {
+        width: 100%;
+       }
     }
   }
 &-content {
   width: 60%;
+  @media screen and (max-width:  $breakpoint-mobile) {
+    width: 100%;
+  }
 }
 }
 
@@ -105,6 +161,9 @@
   a {
     margin-right: 30px;
     &:last-child {
+      margin-right: 0px;
+    }
+    @media screen and (max-width:  $breakpoint-mobile) {
       margin-right: 0px;
     }
   }
@@ -127,6 +186,11 @@
       content: url("../assets/Icons/icon-instagram.svg");
     }
   }
+  @media screen and (max-width:  $breakpoint-mobile) {
+          
+    flex-direction: column;
+   
+   }
 }
 .show-me {
   display: flex;
@@ -139,29 +203,52 @@
     font-size: 28px;
     line-height: 32px;
   }
+  @media screen and (max-width:  $breakpoint-mobile) {
+   flex-direction: column;
+   align-items: flex-start;
+   p {
+     font-size: 16px;
+   }
+}
+.filter-content {
+  display: flex;
+  align-items: center;
+}
 }
 .dept-logo {
   width: 25%;
   margin-bottom: calculate-rem(100px);
    &::after {
-       content: url("../assets/Icons/icon-dept-white.svg");
+       content: "";
+       background-image: url("../assets/Icons/icon-dept-white.svg");
        display: block;
+       background-repeat: no-repeat;
+        background-size: contain;
+        width: 100px;
+        height: 28px;
+        @media screen and (max-width:  $breakpoint-mobile) {
+          width: 60px;
+          height: 20px;
+        }
    }
 }
 .side-menu {
   position: fixed;
   background-color: $color-primary-black;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  overflow: auto;
   top: 0;
   z-index: 200;
   padding: 50px 80px;
   left: 100%;
   transition: 1s;
+  @media screen and (max-width:  $breakpoint-mobile) {
+    padding: 20px;
+ }
   .content-holder {
     position: relative;
-    height: 100%;
-    overflow: auto;
+
   }
   
 .social-networks , .dept-global {
@@ -174,10 +261,11 @@
     padding-bottom: 3px;
     text-transform: uppercase;
   }
+  @media screen and (max-width:  $breakpoint-mobile) {
+  display: none;
+ }
 }
-.landen {
 
-}
 .social-networks {
   margin-top: -15px;
 }
@@ -191,6 +279,9 @@
   right: 0px;
   top:0px;
   cursor: pointer;
+  @media screen and (max-width:  $breakpoint-mobile) {
+  top: -10px;
+  }
 }
 }
 .active {
@@ -212,7 +303,13 @@
     text-align: end;
     &:first-child , &:last-child {
       width: 90%;
+      @media screen and (max-width:  $breakpoint-mobile) {
+        width: 100%;
+      }
     }
+    @media screen and (max-width:  $breakpoint-mobile) {
+      font-size: 30px;
+   }
   }
 }
 .client-res {
@@ -230,6 +327,11 @@
     color: #272727;
     line-height: 46px;
     font-weight: 700;
+    @media screen and (max-width:  $breakpoint-mobile) {
+      font-size: 18px;
+      line-height: 30px;
+       
+   }
   }
   .client-name {
     font-size: 13px;
@@ -244,6 +346,11 @@
     text-align: center;
     width: 60%;
     margin: 0 auto;
+    @media screen and (max-width:  $breakpoint-mobile) {
+      
+     width: 100%;
+         
+         }
     h2 {
       margin-bottom: 30px;
     }

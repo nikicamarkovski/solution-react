@@ -3,6 +3,10 @@
     color: $color-primary-black;
     text-transform: uppercase;
     font-weight: bold;
+    @media screen and (max-width:  $breakpoint-mobile) {
+     font-size: 16px;
+        
+        }
 
 }
 .header-title {
@@ -10,12 +14,20 @@
     font-weight: bolder;
     
     text-transform: uppercase;
+    @media screen and (max-width:  $breakpoint-mobile) {
+        font-size: calculate-rem(90px);
+        text-align: center;
+    }
 }
 .news-text {
     color: $color-light-black;
     font-size: calculate-rem(22px);
     line-height: 32px;
     font-weight: bold;
+    @media screen and (max-width:  $breakpoint-mobile) {
+        font-size: calculate-rem(20px);
+        
+    }
 
 }
 .brand {
@@ -24,11 +36,20 @@
     line-height: 30px;
     margin-top: 18px;
     margin-bottom: 12px;
+    @media screen and (max-width:  $breakpoint-mobile) {
+        font-size: calculate-rem(14px);
+        
+    }
 }
+
 .view-cases {
     margin-top: 14px;
     display: flex;
     align-items: center;
+    @media screen and (max-width:  $breakpoint-mobile) {
+       display: none;
+        
+    }
     p {
         margin-left: 10px;
     }
@@ -53,6 +74,10 @@
     font-weight: 700;
     line-height: 60px;
     font-family: $font-primary;
+    @media screen and (max-width:  $breakpoint-mobile) {
+        font-size: 30px;
+           
+           }
 }
 .black-small-text {
     font-size: 17px;

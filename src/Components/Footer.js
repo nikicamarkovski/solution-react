@@ -1,7 +1,19 @@
 import React from 'react'
 
 export const Footer = () => {
+    const handleOnClick = (e) => {
+        
+            e.preventDefault();
+            console.log("da")
+            document.getElementById("top").scrollIntoView({
+                behavior: "smooth",
+                block: "end",
+                inline: "nearest"
+            })
+      
+    }
     return (
+        <div className="footer-content">
         <footer>
             <div className="container">
                 <div className="footer-content">
@@ -21,13 +33,13 @@ export const Footer = () => {
                        
                        
                     </div>
-                
-                </div>
-                <div className="social-networks-footer">
+                    <div className="social-networks-footer">
                             <a className="facebook"></a>
                             <a className="twitter"></a>
                             <a className="instagram"></a>
                         </div>
+                </div>
+                
             </div>
                 <div className="adress">
                     <p>Chamber of Commerce: 63464101</p>  
@@ -38,6 +50,10 @@ export const Footer = () => {
                        </div>
                     </div>
             </div>
+      
         </footer>
+        <div className="footer-right-content" >
+            <a href="#top" onClick={handleOnClick}>top</a></div>
+        </div>
     )
 }

@@ -11,6 +11,10 @@ button {
     background-color:$color-primary-black;
     color: $color-primary-white;
     text-transform: uppercase;
+    @media screen and (max-width:  $breakpoint-mobile) {
+        width: 90%;
+        margin: 0 auto;
+    }
 }
 .btn-blue {
     font-size: 15px;

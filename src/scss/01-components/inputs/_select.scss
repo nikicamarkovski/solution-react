@@ -36,17 +36,23 @@
   
     [class$="placeholder"] {
     color: #0e0e0e;
-      font-size: calculate-rem(30px);
+      font-size: calculate-rem(25px);
       line-height: calculate-rem(32px);
       font-weight: 500;
+      @media screen and (max-width:  $breakpoint-mobile) {
+        font-size: calculate-rem(16px);
+      }
     }
     [class$="ValueContainer"] {
         height: 100%;
         [class$="singleValue"] {
             color: #0e0e0e;
-            font-size: calculate-rem(30px);
+            font-size: calculate-rem(25px);
             line-height: calculate-rem(32px);
             font-weight: 500;
+            @media screen and (max-width:  $breakpoint-mobile) {
+              font-size: calculate-rem(16px);
+            }
           } 
       }
     
