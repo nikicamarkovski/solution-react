@@ -2,10 +2,11 @@ header {
     background-image: url("../assets/Images/Header.jpg");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     width: 100%;
-    min-height: 900px;
-    height: 900px;
+    min-height: 800px;
+    height: 800px;
+    padding-top: 57.14;
     .container {
         height: 100%;
     }
@@ -37,14 +38,16 @@ header {
     padding-top: 80px;
 }
 .header-button {
-    height: 45%;
-    margin-top: auto;
+    margin-top: 280px;
+  
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
 }
 }
 .burger-menu {
+    padding-right: 0px !important;
+    cursor: pointer;
     &::after {
         content: url("../assets/Icons/icon-menu.svg");
         display: block;

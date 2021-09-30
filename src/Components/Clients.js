@@ -20,10 +20,11 @@ export const Clients = () => {
     const [brandImages, setBrandImages] = useState([ABN, Adidas, KLM, Microsoft, Mona,
         Nivea, NN, Oxxio, Pathe, Tomtom, Transavia, Triumph, Unilever, Walibi, Zalando, Ziggo])
     return (
+        <div className="client-section">
         <div className="container">
-            <div>
-                <h2>CLIENTS</h2>
-                <p>We value a great working relationship with our clients above all else. It’s why they often come to our parties. It’s also why we’re able to challenge and inspire them to reach for the stars.</p>
+            <div className="client-section-header">
+                <h2 className="black-large-text">CLIENTS</h2>
+                <p className="black-small-text">We value a great working relationship with our clients above all else. It’s why they often come to our parties. It’s also why we’re able to challenge and inspire them to reach for the stars.</p>
 
             </div>
             <div className="client-logo">
@@ -38,6 +39,7 @@ export const Clients = () => {
                     ))
                 }
             </div>
+        </div>
         </div>
     )
 }

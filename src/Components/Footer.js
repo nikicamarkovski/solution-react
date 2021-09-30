@@ -23,7 +23,7 @@ export const Footer = () => {
                     </div>
                 
                 </div>
-                <div className="social-networks">
+                <div className="social-networks-footer">
                             <a className="facebook"></a>
                             <a className="twitter"></a>
                             <a className="instagram"></a>

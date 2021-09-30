@@ -1,22 +1,31 @@
 @import "../mixins/mixins";
 
-// 1. embed fonts from google fonts
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+// // 1. embed fonts from google fonts
+// @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
-// 2. another online source or local font
+// // 2. another online source or local font
+// @font-face {
+//     font-family: "Jost-300-Light";
+//     src: url("https://d1ul2x9g3l58wj.cloudfront.net/font/Jost-300-Light.otf") format("opentype");
+//     font-style: normal;
+// }
+
+// // using custom fonts
+// .font-lato {
+//     font-family: 'Lato', sans-serif;
+// }
+
+// .font-jost {
+//     font-family: 'Jost-300-Light', sans-serif;
+// }
 @font-face {
-    font-family: "Jost-300-Light";
-    src: url("https://d1ul2x9g3l58wj.cloudfront.net/font/Jost-300-Light.otf") format("opentype");
+    font-family: 'Teko-Regular';
+    src: url('../assets/Fonts/Teko/Teko-Regular.ttf') format('ttf');
+   
+    font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
-// using custom fonts
-.font-lato {
-    font-family: 'Lato', sans-serif;
-}
 
-.font-jost {
-    font-family: 'Jost-300-Light', sans-serif;
-}
-
-$font-primary: "Montserrat", sans-serif;
+$font-primary: "Teko-Regular", sans-serif;

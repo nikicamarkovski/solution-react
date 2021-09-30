@@ -13,18 +13,50 @@
 }
 .news-text {
     color: $color-light-black;
-    font-size: calculate-rem(30px);
+    font-size: calculate-rem(22px);
     line-height: 32px;
+    font-weight: bold;
 
 }
 .brand {
     color: $color-primary-grey;
     font-size: calculate-rem(15px);
     line-height: 30px;
+    margin-top: 18px;
+    margin-bottom: 12px;
 }
 .view-cases {
-    color : $color-light-blue;
-    font-size: 14px;
-    line-height: 30px;
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    p {
+        margin-left: 10px;
+    }
+    .icon-inline {
+        transform: rotate(33deg);
+    }
+
+    
+}
+.blue-text {
+ 
+        color : $color-light-blue;
+        font-size: 14px;
+        line-height: 30px;
+        font-weight: 800;
+        text-transform: uppercase;
+}
+
+.black-large-text {
+    font-size: 60px;
+    color: #0e0e0e;
     font-weight: 700;
+    line-height: 60px;
+    font-family: $font-primary;
+}
+.black-small-text {
+    font-size: 17px;
+    line-height: 27px;
+    color: #0e0e0e;
+    font-weight: 500;
 }

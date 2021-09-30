@@ -1,13 +1,7 @@
 footer {
     padding: 98px 0px 112px 0px;
     margin-top: 80px;
-    .dept-logo {
-       width: 25%;
-        &::after {
-            content: url("../assets/Icons/icon-dept-white.svg");
-            display: block;
-        }
-    }
+   
     background-color: black;
     .links-top {
         a {
