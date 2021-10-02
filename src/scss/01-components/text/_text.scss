@@ -10,9 +10,9 @@
 
 }
 .header-title {
-    font-size: calculate-rem(210px);
+    font-size: calculate-rem(180px);
     font-weight: bolder;
-    
+    word-wrap: break-word;
     text-transform: uppercase;
     @media screen and (max-width:  $breakpoint-mobile) {
         font-size: calculate-rem(90px);
@@ -84,4 +84,35 @@
     line-height: 27px;
     color: #0e0e0e;
     font-weight: 500;
+}
+
+
+
+.input-field-login {
+
+    .input-label {
+        font-size: 20px;
+        line-height: 60px;
+        color: #0e0e0e;
+        font-weight: 600;
+    }
+ 
+  input  {
+                 
+    background-color: #FFFFFF;
+    border: 2px solid #E0E0E0;
+    color:#3C3733;
+    border-radius: 8px;
+    margin-left: 10px;
+    width: 130px;
+    height: 56px;
+    color: #3C3733;
+    font-size: calculate-rem(16px);
+    line-height: calculate-rem(20px);
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+}
+.error-message {
+    color: red;
 }

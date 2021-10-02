@@ -6,6 +6,22 @@
 .container-fluid {
   @include make-container();
 }
+.container-50 {
+  width: 50%;
+  margin: 0 auto;
+  @media screen and (max-width:  $breakpoint-mobile) {
+    width: 100%;
+    
+ }
+}
+.login {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  input {
+    width: 100% !important;
+    margin-left: 0px !important;
+  }
+}
 
 .news-section {
   display: flex;
@@ -287,12 +303,22 @@
 .active {
   left: 0%;
 }
+.active-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+ 
+  svg {
+    transform: rotate(-90deg);
+    margin-right: 10px;
+  }
+}
 .nav-menu {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 
-  li {
+  li , a {
     font-size: 50px;
     font-weight: bolder;
     padding-bottom: 15px;
@@ -301,6 +327,7 @@
     color: $color-primary-white;
     width: 100%;
     text-align: end;
+    cursor: pointer;
     &:first-child , &:last-child {
       width: 90%;
       @media screen and (max-width:  $breakpoint-mobile) {

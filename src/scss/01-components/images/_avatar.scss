@@ -5,13 +5,14 @@
     border-radius: 50%;
     display: inline-block;
     margin: calculate-rem(8px);
+    height: auto !important;
 
     @each $name,
     $size in ($avatars) {
 
         &.avatar-#{$name} {
-            width: $size;
-            height: $size;
+            width: 500px;
+            height: 500px;
         }
 
     }

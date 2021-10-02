@@ -1,17 +1,28 @@
-import React, { useState , useEffect } from 'react'
-
-export const SideMenu = ({sideMenu , getSideMenuState}) => {
-    const [isActive , setIsActive] = useState(false)
+import React, { useState , useEffect, useContext } from 'react'
+import { NavLink } from 'react-router-dom';
+import { IconDropdown } from './Icons/IconDropdown';
+import AuthContext from '../context/auth/AuthContext'
+export const SideMenu = ({sideMenu , getSideMenuState , getActiveMenu}) => {
+    const authContext = useContext(AuthContext);
+    const {  isAuthenticated  } = authContext;
+    const [isActive , setIsActive] = useState(false);
+    const [menu , setMenu] = useState("")
     useEffect(()=> {
         
         setIsActive(sideMenu);
      
     })
-
+    const handleMenu = (e) => {
+        setMenu(e.target.getAttribute("data-id"));
+        console.log(e.target)
+        console.log(menu)
+        getActiveMenu(e.target.getAttribute("data-id"));
+    }
+    
     const handleOnClick = () => {
      setIsActive(false);
      console.log(isActive)
-     getSideMenuState(isActive) 
+     getSideMenuState(menu) 
 
     }
     return (
@@ -34,12 +45,13 @@ export const SideMenu = ({sideMenu , getSideMenuState}) => {
                 </ul>
              
                 <ul className="nav-menu">
-                    <li>HOME</li>
-                    <li>WERK</li>
-                    <li>OVER</li>
-                    <li>DIENSTEN</li>
-                    <li>PARTNERS</li>
-                    <li>VACATURES</li>
+                    <NavLink to="/home" data-id={"HOME"} className={`${menu === "HOME" && "active-menu"}`} onClick={handleMenu}>{ menu==="HOME"  && <IconDropdown color={"white"} />}HOME</NavLink>
+                    <NavLink to="/werk" data-id={"WERK"} className={`${menu === "WERK" && "active-menu"}`} onClick={handleMenu}> { menu==="WERK"  && <IconDropdown color={"white"} />}WERK</NavLink>
+                    <NavLink to="/over" data-id={"OVER"} className={`${menu === "OVER" && "active-menu"}`} onClick={handleMenu}> { menu==="OVER"  && <IconDropdown color={"white"} />}OVER</NavLink>
+                    <NavLink to="/diensten" data-id={"DIENSTEN"}  className={`${menu === "DIENSTEN" && "active-menu"}`} onClick={handleMenu}> { menu==="DIENSTEN"  && <IconDropdown color={"white"} />}DIENSTEN</NavLink>
+                    <NavLink to="/partners" data-id={"PARTNERS"} className={`${menu === "PARTNERS" && "active-menu"}`} onClick={handleMenu}> { menu==="PARTNERS"  && <IconDropdown color={"white"} />}PARTNERS</NavLink>
+                    <NavLink to="/vacatures" data-id={"VACATURES"} className={`${menu === "VACATURES" && "active-menu"}`} onClick={handleMenu}> { menu==="VACATURES"  && <IconDropdown color={"white"} />}VACATURES</NavLink>
+                    {isAuthenticated && <NavLink to="/users">USERS</NavLink>}
                 </ul>
                 <ul className="social-networks">
                     <li>FACEBOOK</li>
