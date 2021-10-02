@@ -1336,6 +1336,10 @@ multiply the value of opacity by 100 for IE filter.;
   margin-bottom: 30px;
 }
 
+.users {
+  margin-top: 100px;
+}
+
 .bg-primary {
   background-color: #23a474;
 }
@@ -5004,7 +5008,7 @@ input.accordion:checked ~ .accordion-content {
 
 @media screen and (max-width: 768px) {
   .header-title {
-    font-size: 5.625rem;
+    font-size: 5.3125rem;
     text-align: center;
   }
 }
@@ -5120,6 +5124,10 @@ input.accordion:checked ~ .accordion-content {
   .login-mail {
     display: none;
   }
+}
+
+.logout {
+  cursor: pointer;
 }
 
 .avatar {
@@ -5245,6 +5253,14 @@ header .container {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+  header .container {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 
 header .header-content {

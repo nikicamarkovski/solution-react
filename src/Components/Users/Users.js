@@ -19,7 +19,9 @@ export const Users = () => {
       }
       console.log(filtered)
     return (
+        <div className="users">
         <div className="container">
+            
             <div className="input-field-login">
                 <p className="input-label">filter</p>
                 <input type="text" onChange={handleOnChange} value={value}/>
@@ -50,6 +52,7 @@ export const Users = () => {
           
             
             </div>
+        </div>
         </div>
         </div>
     )

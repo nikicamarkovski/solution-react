@@ -15,7 +15,7 @@
     word-wrap: break-word;
     text-transform: uppercase;
     @media screen and (max-width:  $breakpoint-mobile) {
-        font-size: calculate-rem(90px);
+        font-size: calculate-rem(85px);
         text-align: center;
     }
 }
@@ -121,4 +121,6 @@
         display: none;
 }
 }
-    
+.logout {
+    cursor: pointer;
+}

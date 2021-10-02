@@ -45,7 +45,7 @@ export const Header = () => {
                              location.pathname !== "/login" ?
                             <NavLink onClick={()=>setMenu("Login")} className="menu-text" to="login">{isAuthenticated ? "logout" : "login"}</NavLink> 
                             : ""
-                            : <p className="menu-text" onClick={handleLogout}>Logout</p>
+                            : <p className="menu-text logout" onClick={handleLogout}>Logout</p>
                         }
                         </>
                     
