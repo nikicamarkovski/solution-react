@@ -23,9 +23,9 @@ function App() {
         <Router>
        <Header/>
         <Switch>
-      <Route  exact path="/" component={HomePage}/>
-      <Route exact path="/login" component={Login}/>
-      <PrivateRoute exact path="/users" component={Users}/>
+      <Route  exact path="/" component={HomePage} />
+      <Route exact path="/login" component={Login} />
+      <PrivateRoute exact path="/users" component={Users} />
       </Switch>
       <Footer />
       </Router>

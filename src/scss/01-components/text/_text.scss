@@ -116,3 +116,9 @@
 .error-message {
     color: red;
 }
+.login-mail {
+    @media screen and (max-width:  $breakpoint-mobile) {
+        display: none;
+}
+}
+    

@@ -12,7 +12,9 @@ export const Header = () => {
     const[menu , setMenu] = useState("")
     const fieldRef = useRef(null);
     const location = useLocation();
+    useEffect(()=> {
 
+    })
     const getSideMenuState = (state) => {
     
         setSideMenu(false)
@@ -36,7 +38,7 @@ export const Header = () => {
                     <div className="header-content-logo"></div>
                     <div className="header-content-menu">
                         {
-                            user !== null && <p className="menu-text">{user.email}</p> 
+                            user !== null && <p className="menu-text login-mail">{user.email}</p> 
                         }
                <>
                             {!isAuthenticated ?
@@ -55,7 +57,7 @@ export const Header = () => {
                 </div>
           
                 <div className="header-body">
-                    <h1 className="header-title">{menu}</h1>
+                    <h1 className="header-title">{location.pathname.substring(1)}</h1>
                 </div>
                 <div className="header-button">
                     <button className="btn-black">VIEW CASE</button>

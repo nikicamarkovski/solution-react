@@ -772,7 +772,7 @@ multiply the value of opacity by 100 for IE filter.;
   margin-bottom: 100px;
 }
 
-.login input {
+.input-field-login input {
   width: 100% !important;
   margin-left: 0px !important;
 }
@@ -1217,10 +1217,24 @@ multiply the value of opacity by 100 for IE filter.;
           justify-content: flex-end;
 }
 
-.active-menu svg {
+.active-menu::before {
+  content: "";
+  background-image: url("../assets/Icons/icon-dropdown.svg");
+  display: block;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 60px;
+  height: 25px;
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
-  margin-right: 10px;
+  background-position: center;
+}
+
+@media screen and (max-width: 768px) {
+  .active-menu::before {
+    width: 16px;
+    height: 10px;
+  }
 }
 
 .nav-menu {
@@ -1243,6 +1257,7 @@ multiply the value of opacity by 100 for IE filter.;
   margin-bottom: 15px;
   border-bottom: 2px solid #a3a3a3;
   color: #ffffff;
+  text-transform: uppercase;
   width: 100%;
   text-align: end;
   cursor: pointer;
@@ -5101,6 +5116,12 @@ input.accordion:checked ~ .accordion-content {
   color: red;
 }
 
+@media screen and (max-width: 768px) {
+  .login-mail {
+    display: none;
+  }
+}
+
 .avatar {
   vertical-align: middle;
   width: 1rem;
@@ -5211,6 +5232,7 @@ header {
     min-height: 300px;
     height: 300px;
     margin-top: 50px;
+    position: relative;
   }
 }
 
@@ -5296,6 +5318,10 @@ header .header-button {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    position: absolute;
+    bottom: -50px;
+    width: 90%;
+    margin: 0 auto;
   }
 }
 

@@ -14,9 +14,12 @@
     
  }
 }
-.login {
+.login  {
   margin-top: 100px;
   margin-bottom: 100px;
+}
+.input-field-login {
+
   input {
     width: 100% !important;
     margin-left: 0px !important;
@@ -308,10 +311,21 @@
   align-items: center;
   justify-content: flex-end;
  
-  svg {
-    transform: rotate(-90deg);
-    margin-right: 10px;
-  }
+ &::before {
+  content: "";
+  background-image: url("../assets/Icons/icon-dropdown.svg");
+  display: block;
+  background-repeat: no-repeat;
+   background-size: contain;
+   width: 60px;
+   height: 25px;
+   transform: rotate(-90deg);
+   background-position: center;
+   @media screen and (max-width:  $breakpoint-mobile) {
+      width: 16px;
+      height: 10px;
+    }
+ }
 }
 .nav-menu {
   display: flex;
@@ -325,6 +339,7 @@
     margin-bottom: 15px;
     border-bottom: 2px solid #a3a3a3;
     color: $color-primary-white;
+    text-transform: uppercase;
     width: 100%;
     text-align: end;
     cursor: pointer;

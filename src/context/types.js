@@ -10,3 +10,4 @@ export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 //User types 
 
 export const GET_ALL_USERS = "GET_ALL_USERS";
+export const FILTER_USERS = "FILTER_USERS";

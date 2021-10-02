@@ -5,6 +5,7 @@ import UsersContext from './UsersContext';
 import usersReducer from './UsersReducer'; 
 
 import {
+  FILTER_USERS,
  GET_ALL_USERS
 }from '../types';
 
@@ -12,7 +13,8 @@ import {
 const UsersState = props=>{
     let apiULR = "https://reqres.in/api"
   const initialState = {
-        users:null
+        users:null,
+        filtered :null
   }
   const [state , dispatch] = useReducer(usersReducer , initialState);
 
@@ -30,12 +32,20 @@ const UsersState = props=>{
       }
       
   }
+  const filterUsers = (value) => {
+      dispatch({
+        type:FILTER_USERS,
+        payload:value
+      })
+  }
   return(
 
       <UsersContext.Provider
       value={{
         users : state.users,
-        getAllUsers
+        filtered : state.filtered,
+        getAllUsers,
+        filterUsers
 
       }}
       >

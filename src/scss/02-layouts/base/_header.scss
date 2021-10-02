@@ -11,7 +11,7 @@ header {
         min-height: 300px;
         height: 300px;
         margin-top: 50px;
-           
+           position: relative;
            }
     .container {
         height: 100%;
@@ -64,6 +64,10 @@ header {
         margin-top: 125px;
         justify-content: center;
         align-items: center;
+        position: absolute;
+        bottom: -50px;
+        width: 90%;
+        margin: 0 auto;
             
      }
 }
