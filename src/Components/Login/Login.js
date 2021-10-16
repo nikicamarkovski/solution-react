@@ -36,7 +36,7 @@ export const Login = props => {
                 <input type="email" name="email" value={email} onChange={handleCange}/>
             </div>
             <div className="input-field-login">
-                <p className="input-label">username</p>
+                <p className="input-label">password</p>
                 <input type="password" name="password" value={password} onChange={handleCange}/>
             </div>
             <div className="content-button">
